@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rodrigogregorioneri/botneri/issues"
   },
-  "homepage": "https://github.com/rodrigogregorioneri/botneri#readme"
+  "homepage": "https://github.com/rodrigogregorioneri/botneri#readme",
+  "dependencies": {
+    "botbuilder": "^3.12.0"
+  }
 }
