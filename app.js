@@ -20,6 +20,18 @@ var bot = new builder.UniversalBot(connector, function (session) {
     session.send("CronApp: Posso ajudar em algo?");
    
    
+    session.send("CronApp: Olá não hetero?");
+
+
+
+
+
+   
+   
+   
+   
+
+});
    bot.dialog('nome', [
     function (session) {
         builder.Prompts.text(session, 'Olá, Qual seu nome??');
@@ -37,7 +49,6 @@ bot.dialog('CronApp', [
         session.endDialog(`Olá ${results.response}!`);
     }
 ]);
-
 
 bot.on('conversationUpdate', function (message) {
     if (message.membersAdded && message.membersAdded.length > 0) {
@@ -63,12 +74,3 @@ bot.on('conversationUpdate', function (message) {
         }
     }
 });
-
-   
-   
-   
-   
-
-});
-
-
