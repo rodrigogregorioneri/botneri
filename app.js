@@ -20,7 +20,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
     session.send("CronApp: Posso ajudar em algo?");
    
    
-    session.send("CronApp: Olá não hetero?");
+    session.send("CronApp: Olá não hetero");
 
 
 
