@@ -18,11 +18,9 @@ server.post('/api/messages', connector.listen());
 
 var bot = new builder.UniversalBot(connector, function (session) {
     session.send("CronApp: Posso ajudar em algo?");
-
-});
-
-
-bot.dialog('askName', [
+   
+   
+   bot.dialog('askName', [
     function (session) {
         builder.Prompts.text(session, 'Hi! What is your name?');
     },
@@ -65,3 +63,12 @@ bot.on('conversationUpdate', function (message) {
         }
     }
 });
+
+   
+   
+   
+   
+
+});
+
+
