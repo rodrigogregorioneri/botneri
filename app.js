@@ -21,7 +21,14 @@ var bot = new builder.UniversalBot(connector, function (session) {
 
 });
 
-
+bot.dialog('CronApp', [
+    function (session) {
+        builder.Prompts.text(session, 'Olá! Qual seu nome?');
+    },
+    function (session, results) {
+        session.endDialog(`Olá ${results.response}!`);
+    }
+]);
 
 
 bot.on('conversationUpdate', function (message) {
