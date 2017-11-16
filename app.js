@@ -24,7 +24,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
     userStore.push(address);
 
     // end current dialog
-    session.endDialog('You\'ve been invited to a survey! It will start in a few seconds...');
+    session.endDialog('Você foi convidado para uma pesquisa! Começará em alguns segundos ...');
 });
 
 // Every 5 seconds, check for new registered users and start a new dialog
@@ -53,7 +53,7 @@ setInterval(function () {
 
 bot.dialog('survey', [
     function (session) {
-        builder.Prompts.text(session, 'Hello... What\'s your name?');
+           builder.Prompts.text(session, 'Olá... Qual seu nome?');
     },
     function (session, results) {
         session.userData.name = results.response;
