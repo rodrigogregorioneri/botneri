@@ -1,0 +1,19 @@
+{
+  "name": "botneri",
+  "version": "1.0.0",
+  "description": "ChatBot para estudos com node js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigogregorioneri/botneri.git"
+  },
+  "author": "Rodrigo Neri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rodrigogregorioneri/botneri/issues"
+  },
+  "homepage": "https://github.com/rodrigogregorioneri/botneri#readme"
+}
