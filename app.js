@@ -20,9 +20,9 @@ var bot = new builder.UniversalBot(connector, function (session) {
     session.send("CronApp: Posso ajudar em algo?");
    
    
-   bot.dialog('askName', [
+   bot.dialog('nome', [
     function (session) {
-        builder.Prompts.text(session, 'Hi! What is your name?');
+        builder.Prompts.text(session, 'Olá, Qual seu nome??');
     },
     function (session, results) {
         session.endDialogWithResult(results);
