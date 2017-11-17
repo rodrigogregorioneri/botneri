@@ -13,6 +13,8 @@ var connector = new builder.ChatConnector({
     appId: '1f9ed36f-309d-4fef-afe8-401276d643a4',
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
+
+
 var menuItems = { 
     "futuro": {
         item: "futuro"
@@ -33,9 +35,11 @@ var bot = new builder.UniversalBot(connector, [
         builder.Prompts.text(session, "CronApp ou Notepad++?");
     },
     function (session, results) {
-        if(results.response ==="CronApp"){
+        if(results.response == "CronApp"){
+            console.log(results.response);
             session.send("Sensacional assim você ganhara mais produtividade!!!");
         }else if(results.response ==="Notepad++"){
+            console.log(results.response);
             session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
         }
     
