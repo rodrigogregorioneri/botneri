@@ -23,6 +23,9 @@ var bot = new builder.UniversalBot(connector, [
         session.send("Bem vindo ao CronApp.");
         builder.Prompts.text(session, "gostaria de conhecer o Blockly ou CronApp?");
  
+    }, function(session, results){
+       resposta = results.response;
+       session.send(resposta);
     }
 ]);
 
