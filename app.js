@@ -30,7 +30,7 @@ server.post('/api/messages', connector.listen());
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
     function (session) {
-        session.send("Bem vindo ao CronApp");
+        session.send('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
         
         builder.Prompts.text(session, "CronApp ou Notepad++?");
     },
