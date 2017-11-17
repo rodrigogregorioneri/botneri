@@ -49,15 +49,13 @@ var bot = new builder.UniversalBot(connector, [
         if(results.response >= 23){
             session.send("Tiozão você!!");  
             session.beginDialog("mainMenu");
+            session.endDialog();
         }else{
             session.send("Menino novo!!");  
             session.beginDialog("mainMenu");
+            session.endDialog();
         }
 
-    },
-    function (session, results) {
-        session.beginDialog("mainMenu");
-        
     }
 ]);
 
@@ -69,6 +67,7 @@ bot.dialog("mainMenu", [
     function(session, results){
         if(results.response){
             session.beginDialog(menuItems[results.response.entity].item);
+            session.endDialog();
         }
     }
 ])
@@ -83,7 +82,7 @@ bot.dialog("mainMenu", [
 bot.dialog('futuro', [
     function(session){
         session.send("O futuro é o Blockly!");
-        session.endDialog();
+        
 
     }
 ]);
@@ -92,7 +91,7 @@ bot.dialog('futuro', [
 bot.dialog('produtividade', [
     function(session){
         session.send("Alta produtividade com o blockly!!!");
-        session.endDialog();
+        
 
     }
 ]);
