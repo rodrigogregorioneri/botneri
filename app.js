@@ -36,43 +36,10 @@ var menuItems = {
 
 var bot = new builder.UniversalBot(connector, [
     function(session){
-      //  session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'.");
-        session.beginDialog("cronapp");
+        session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'.");
+       // session.beginDialog("cronapp");
     }
 ]);
-
-bot.dialog("cronapp", [
-    function(session){
-        builder.Prompts.choice(session, "Menu CronApp:", menuItems);
-    },
-    function(session, results){
-        if(results.response){
-            session.beginDialog(menuItems[results.response.entity].item);
-        }
-    }
-])
-.triggerAction({
-    // The user can request this at any time.
-    // Once triggered, it clears the stack and prompts the main menu again.
-    matches: /^main menu$/i,
-    confirmPrompt: "Isso cancelará seu pedido. Você tem certeza?"
-});
-
-bot.dialog('cronapp', [
-    function(session){
-        session.send("Olá eu sou o CronApp");
-        
-    },
-    function (session, results) {
-        if (results.response) {
-            var order = dinnerMenu[results.response.entity];
-            var msg = `Bem vindo ao CronApp`;
-            session.dialogData.order = order;
-            session.send(msg);
-            builder.Prompts.text(session, "Qual o seu nome?");
-        } 
-    }
-])
 
 
 
