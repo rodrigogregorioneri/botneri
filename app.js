@@ -22,8 +22,7 @@ var userStore = [];
 
 var bot = new builder.UniversalBot(connector, function (session) {
    // session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'");
-   
-   session.beginDialog("boatarde");
+
    
    session.beginDialog("cronapp");
 });
