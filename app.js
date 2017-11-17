@@ -26,10 +26,10 @@ var menuItems = {
 
 var escolha = { 
     "biscoito": {
-        item: "biscoito"
+        items: "biscoito"
     },
     "bolacha": {
-        item: "bolacha"
+        items: "bolacha"
     },
 }
 
@@ -80,7 +80,7 @@ bot.dialog("mainMenu", [
         builder.Prompts.choice(session, "Menu CronApp:", menuItems);
     },
     function(session, results){
-        if(results.response){
+        if(results, response){
             session.beginDialog(menuItems[results.response.entity].item);
             session.endDialog();
         }
@@ -112,26 +112,32 @@ bot.dialog('produtividade', [
 ]);
 
 
-bot.dialog('bora', [
+
+
+
+bot.dialog("bora", [
     function(session){
         builder.Prompts.choice(session, "Menu CronApp:", escolha);
-        
-
     },
-    ,
     function(session, results){
         if(results.response){
-            session.beginDialog(escolha[results.response.entity].item);
+            session.beginDialog(escolha[results.response.entity].items);
             session.endDialog();
         }
     }
-]);
+])
+.triggerAction({
+    // The user can request this at any time.
+    // Once triggered, it clears the stack and prompts the main menu again.
+    matches: /^main menu$/i,
+    confirmPrompt: "deseja sair?"
+});
 
 
 bot.dialog('biscoito', [
     function(session){
         session.send("Errrou é bolacha!");
-        
+        session.endDialog();
 
     }
 ]);
@@ -140,7 +146,7 @@ bot.dialog('biscoito', [
 bot.dialog('bolacha', [
     function(session){
         session.send("Acerto Mizeravi!!!");
-        
+        session.endDialog();
 
     }
 ]);
