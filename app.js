@@ -18,11 +18,7 @@ var connector = new builder.ChatConnector({
 server.post('/api/messages', connector.listen());
 
 var userStore = [];
-var bot = new builder.UniversalBot(connector, function (session) {
-  
-  
 
-});
 
 var bot = new builder.UniversalBot(connector, function (session) {
    // session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'");
@@ -31,14 +27,14 @@ var bot = new builder.UniversalBot(connector, function (session) {
 });
 
 
-var bot2 = new builder.UniversalBot(connector, function (session) {
+var bot = new builder.UniversalBot(connector, function (session) {
    // session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'");
     session.beginDialog("cronapp");
  
 });
 
 
-bot2.dialog('cronapp',function(session){
+bot.dialog('cronapp',function(session){
     session.send("Já ouviu falar do CronApp?");
 });
 
