@@ -38,12 +38,14 @@ var bot = new builder.UniversalBot(connector, [
         if(results.response == "CronApp"){
             console.log(results.response);
             session.send("Sensacional assim você ganhara mais produtividade!!!");
+            builder.Prompts.number(session, "qual sua idade?");
         }else if(results.response ==="Notepad++"){
             console.log(results.response);
             session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
+            builder.Prompts.number(session, "qual sua idade?");
         }
     
-            builder.Prompts.number(session, "qual sua idade?");
+            
        
         
     },
