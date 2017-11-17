@@ -19,8 +19,9 @@ server.post('/api/messages', connector.listen());
 
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
-    function(session){
+    function(session, args){
         session.send("Bem vindo ao CronApp.");
+        builder.Prompts.text(session, "gostaria de conhecer o Blockly ou CronApp?");
  
     }
 ]);
