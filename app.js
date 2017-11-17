@@ -32,13 +32,13 @@ var bot = new builder.UniversalBot(connector, function (session) {
 
 
 
-bot.dialog('cronapp',function(session){
+bot.dialog('cronapp',[function(session){
     session.send("Já ouviu falar do CronApp?");
-});
-
-bot.dialog('boatarde',function(session){
+},function(session){
     session.send("Boa tarde!!");
-});
+}]);
+
+
 
 
 
