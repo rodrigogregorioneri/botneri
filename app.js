@@ -39,6 +39,8 @@ var bot = new builder.UniversalBot(connector, [
             session.send("Sensacional assim você ganhara mais produtividade!!!");
         }else if(results.response ==="Notepad++"){
             session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
+        }else{
+            session.send("Errrrrrou!!!");  
         }
     
             builder.Prompts.number(session, "qual sua idade?");
@@ -50,10 +52,12 @@ var bot = new builder.UniversalBot(connector, [
             session.send("Tiozão você!!");  
             
             
-        }else{
+        }else if(results.response < 23){
             session.send("Menino novo!!");  
             
             
+        }else{
+            session.send("Errrrrrou!!!");  
         }
         session.beginDialog("mainMenu");
     }
