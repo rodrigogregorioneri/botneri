@@ -10,8 +10,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 
 // Create chat connector for communicating with the Bot Framework Service
 var connector = new builder.ChatConnector({
-    appId: '1f9ed36f-309d-4fef-afe8-401276d643a4',
-    appPassword: 'cvhbcCHHE963:+])qgUFP34'
+    ppId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
 
@@ -22,9 +22,6 @@ var menuItems = {
     "produtividade": {
         item: "produtividade"
     },
-    "motivação":{
-       item:"motivacao"   
-    }
 }
 
 // Listen for messages from users 
@@ -32,15 +29,42 @@ server.post('/api/messages', connector.listen());
 
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
-    function(session){
-        session.send("Bem vindo ao CronApp \n digite 'futuro'  \n digite 'produtividade'.");
+    function (session) {
+        session.send("Bem vindo ao CronApp");
+        
+        builder.Prompts.text(session, "CronApp ou Notepad++?");
+    },
+    function (session, results) {
+        if(results.response ==="CronApp"){
+            session.send("Sensacional assim você ganhara mais produtividade!!!");
+        }else if(results.response ==="Notepad++"){
+            session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
+        }
+    
+            builder.Prompts.number(session, "qual sua idade?");
+       
+        
+    },
+    function (session, results) {
+        if(results.response >= 23){
+            session.send("Tiozão você!!");  
+            session.beginDialog("mainMenu");
+        }else{
+            session.send("Menino novo!!");  
+            session.beginDialog("mainMenu");
+        }
+
+    },
+    function (session, results) {
         session.beginDialog("mainMenu");
+        
     }
 ]);
 
+
 bot.dialog("mainMenu", [
     function(session){
-        builder.Prompts.choice(session, "Main Menu:", menuItems);
+        builder.Prompts.choice(session, "Menu CronApp:", menuItems);
     },
     function(session, results){
         if(results.response){
@@ -52,13 +76,14 @@ bot.dialog("mainMenu", [
     // The user can request this at any time.
     // Once triggered, it clears the stack and prompts the main menu again.
     matches: /^main menu$/i,
-    confirmPrompt: "This will cancel your request. Are you sure?"
+    confirmPrompt: "deseja sair?"
 });
 
 
 bot.dialog('futuro', [
     function(session){
         session.send("O futuro é o Blockly!");
+        session.endDialog();
 
     }
 ]);
@@ -67,14 +92,7 @@ bot.dialog('futuro', [
 bot.dialog('produtividade', [
     function(session){
         session.send("Alta produtividade com o blockly!!!");
-
-    }
-]);
-
-
-bot.dialog('motivacao', [
-    function(session){
-        session.send('“Ei, você! Você mesma, pare de chorar, coloque um sorriso no rosto, mostre que é forte, suporte, uma hora isso vai valer a pena, você vai ver!” ― Ana Carolina');
+        session.endDialog();
 
     }
 ]);
