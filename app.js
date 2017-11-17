@@ -13,8 +13,6 @@ var connector = new builder.ChatConnector({
     appId: '1f9ed36f-309d-4fef-afe8-401276d643a4',
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
-
-
 var menuItems = { 
     "futuro": {
         item: "futuro"
@@ -24,28 +22,14 @@ var menuItems = {
     },
 }
 
-
-var escolha = { 
-    "biscoito": {
-        items: "biscoito"
-    },
-    "bolacha": {
-        items: "bolacha"
-    },
-}
-
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
-
-
-    function(session, results){
+    function (session) {
         session.send('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
-      
-        session.send('');
-      
+        
         builder.Prompts.text(session, "CronApp ou Notepad++?");
     },
     function (session, results) {
@@ -53,8 +37,6 @@ var bot = new builder.UniversalBot(connector, [
             session.send("Sensacional assim você ganhara mais produtividade!!!");
         }else if(results.response ==="Notepad++"){
             session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
-        }else{
-            session.send("Errrou!");
         }
     
             builder.Prompts.number(session, "qual sua idade?");
@@ -81,7 +63,7 @@ bot.dialog("mainMenu", [
         builder.Prompts.choice(session, "Menu CronApp:", menuItems);
     },
     function(session, results){
-        if(results, response){
+        if(results.response){
             session.beginDialog(menuItems[results.response.entity].item);
             session.endDialog();
         }
@@ -107,47 +89,9 @@ bot.dialog('futuro', [
 bot.dialog('produtividade', [
     function(session){
         session.send("Alta produtividade com o blockly!!!");
-        session.beginDialog("bora");
+        
 
     }
 ]);
 
 
-
-
-
-bot.dialog("bora", [
-    function(session){
-        builder.Prompts.choice(session, "Menu CronApp:", escolha);
-    },
-    function(session, results){
-        if(results, response){
-            session.beginDialog(escolha[results.response.entity].items);
-            session.endDialog();
-        }
-    }
-])
-.triggerAction({
-    // The user can request this at any time.
-    // Once triggered, it clears the stack and prompts the main menu again.
-    matches: /^main menu$/i,
-    confirmPrompt: "deseja sair?"
-});
-
-
-bot.dialog('biscoito', [
-    function(session){
-        session.send("Errrou é bolacha!");
-        session.endDialog();
-
-    }
-]);
-
-
-bot.dialog('bolacha', [
-    function(session){
-        session.send("Acerto Mizeravi!!!");
-        session.endDialog();
-
-    }
-]);
