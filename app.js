@@ -32,12 +32,12 @@ var menuItems = {
 var bot = new builder.UniversalBot(connector, [
     function(session){
         session.send("Bem vindo ao CronApp.");
-        session.beginDialog("mainMenu");
+        session.beginDialog("cronapps");
     }
 ]);
 
 // Display the main menu and start a new request depending on user input.
-bot.dialog("mainMenu", [
+bot.dialog("cronapps", [
     function(session){
         builder.Prompts.choice(session, "Menu CronApp:", menuItems);
     },
@@ -46,18 +46,17 @@ bot.dialog("mainMenu", [
             session.beginDialog(menuItems[results.response.entity].item);
         }
     }
-]);
+])
+.triggerAction({
+    // The user can request this at any time.
+    // Once triggered, it clears the stack and prompts the main menu again.
+    matches: /^main menu$/i,
+    confirmPrompt: "Deseja cancelar?"
+});
 
 
-
-// Menu: "Order dinner"
-// This dialog allows user to order dinner to be delivered to their hotel room.
-bot.dialog('cronapp', [
-    function(session){
-        session.send("Olá já conhece o CronApp?");
-        
-    }
-]);
-
+bot.dialog('cronapp', function(session){
+    session.send("Olá Amigos!!");
+})
 
 
