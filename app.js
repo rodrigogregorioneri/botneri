@@ -22,6 +22,9 @@ var menuItems = {
     "produtividade": {
         item: "produtividade"
     },
+    "motivação":{
+       item:"motivacao"   
+    }
 }
 
 // Listen for messages from users 
@@ -64,6 +67,14 @@ bot.dialog('futuro', [
 bot.dialog('produtividade', [
     function(session){
         session.send("Alta produtividade com o blockly!!!");
+
+    }
+]);
+
+
+bot.dialog('motivacao', [
+    function(session){
+        session.send('“Ei, você! Você mesma, pare de chorar, coloque um sorriso no rosto, mostre que é forte, suporte, uma hora isso vai valer a pena, você vai ver!” ― Ana Carolina');
 
     }
 ]);
