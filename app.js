@@ -19,16 +19,21 @@ server.post('/api/messages', connector.listen());
 
 var userStore = [];
 var bot = new builder.UniversalBot(connector, function (session) {
-   
+   session.beginDialog("cronapp");
   
 
 });
 
 var bot = new builder.UniversalBot(connector, function (session) {
     session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'");
-
+    session.beginDialog("cronapp");
 });
 
+
+
+bot.dialog('cronapp',function(session){
+    session.send("Já ouviu falar do CronApp?");
+});
 
 
 
