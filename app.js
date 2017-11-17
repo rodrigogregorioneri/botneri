@@ -21,12 +21,12 @@ server.post('/api/messages', connector.listen());
 var bot = new builder.UniversalBot(connector, [
     function(session, args){
         session.send("Bem vindo ao CronApp.");
-        builder.Prompts.text(session, "gostaria de conhecer o Blockly ou CronApp?");
+        builder.Prompts.text(session, "Escolha umas das opções do menu \n- Descubra o futuro 'futuro' ");
  
     }, function(session, results){
        resposta = results.response;
-       if(resposta === "Blockly"){
-          session.send("Aprenda a desenvolver com o Blockly!!")
+       if(resposta === "futuro"){
+          session.send("O futuro é o Blockly!!")
        }else if(resposta === "CronApp"){
           session.send("Aprenda a desenvolver com o CronApp!!")      
        }else{
