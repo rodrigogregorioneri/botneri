@@ -35,7 +35,7 @@ var bot = new builder.UniversalBot(connector, [
         builder.Prompts.text(session, "CronApp ou Notepad++?");
     },
     function (session, results) {
-        var resposta = results.response;
+        var resposta = session.results.response;
         console.log(resposta);
         if(resposta == "CronApp"){
             console.log(results.response);
