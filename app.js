@@ -33,7 +33,7 @@ var bot = new builder.UniversalBot(connector, [
     function(session){
         session.send("Bem vindo ao CronApp.");
         session.beginDialog("cronapps");
-       session.cancelDialog('cronapp', 'cronapps'); 
+       
        session.cancelDialog('blockly', 'cronapps'); 
     }
 ]);
@@ -59,6 +59,7 @@ bot.dialog("cronapps", [
 
 bot.dialog('cronapp', function(session){
     session.send("Olá Amigos!!");
+   session.cancelDialog('cronapp', 'cronapps'); 
 })
 
 
