@@ -46,15 +46,23 @@ bot.dialog("mainMenu", [
             session.beginDialog(menuItems[results.response.entity].item);
         }
     }
-])
+]);
 
 
 
 // Menu: "Order dinner"
 // This dialog allows user to order dinner to be delivered to their hotel room.
-bot.dialog('blocly', [
+bot.dialog('cronapp', [
     function(session){
         session.send("Olá já conhece o CronApp?");
+        
+    }
+]);
+
+
+bot.dialog('blockly', [
+    function(session){
+        session.send("Olá já conhece o Blockly?");
         
     }
 ])
