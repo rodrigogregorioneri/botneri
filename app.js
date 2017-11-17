@@ -17,8 +17,7 @@ var connector = new builder.ChatConnector({
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
-var userStore = [];
-
+// Main menu
 var menuItems = { 
     "CronApp": {
         item: "cronapp"
@@ -26,15 +25,56 @@ var menuItems = {
     "Blockly": {
         item: "blockly"
     }
-}
+};
 
+
+// This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
     function(session){
-        session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'.");
-       // session.beginDialog("cronapp");
+        session.send("Bem vindo ao CronApp.");
+        session.beginDialog("mainMenu");
     }
 ]);
 
+// Display the main menu and start a new request depending on user input.
+bot.dialog("mainMenu", [
+    function(session){
+        builder.Prompts.choice(session, "Menu CronApp:", menuItems);
+    },
+    function(session, results){
+        if(results.response){
+            session.beginDialog(menuItems[results.response.entity].item);
+        }
+    }
+])
+.triggerAction({
+    // The user can request this at any time.
+    // Once triggered, it clears the stack and prompts the main menu again.
+    matches: /^main menu$/i,
+    confirmPrompt: "Deseja cancelar?"
+});
 
 
 
+// Menu: "Order dinner"
+// This dialog allows user to order dinner to be delivered to their hotel room.
+bot.dialog('blocly', [
+    function(session){
+        session.send("Olá já conhece o CronApp?");
+        
+    }
+])
+.reloadAction(
+    "restartCronApp", "Ok. vamos recomeçar.",
+    {
+        matches: /^start over$/i,
+        confirmPrompt: "deseja cancelar??"
+    }
+)
+.cancelAction(
+    "cancelCronApp", "volte ao menu", 
+    {
+        matches: /^cancel$/i,
+        confirmPrompt: "deseja cancelar??"
+    }
+);
