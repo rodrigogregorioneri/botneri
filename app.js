@@ -46,7 +46,13 @@ bot.dialog("mainMenu", [
             session.beginDialog(menuItems[results.response.entity].item);
         }
     }
-]);
+
+]).triggerAction({
+    // The user can request this at any time.
+    // Once triggered, it clears the stack and prompts the main menu again.
+    matches: /^main menu$/i,
+    confirmPrompt: "deseja cancelar?"
+});
 
 
 
