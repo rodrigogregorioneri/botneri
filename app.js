@@ -36,6 +36,7 @@ var bot = new builder.UniversalBot(connector, [
     },
     function (session, results) {
         var resposta = results.response;
+        console.log(resposta);
         if(resposta == "CronApp"){
             console.log(results.response);
             session.send("Sensacional assim você ganhara mais produtividade!!!");
