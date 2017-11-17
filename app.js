@@ -25,7 +25,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
 });
 
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("O blockly é o futuro!!");
+    session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'");
 
 });
 
