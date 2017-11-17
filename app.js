@@ -21,8 +21,7 @@ server.post('/api/messages', connector.listen());
 var bot = new builder.UniversalBot(connector, [
     function(session, args){
         session.send("Bem vindo ao CronApp.");
-        builder.Prompts.text(session, "Escolha umas das opções do menu \n - Descubra o futuro 'futuro'
-                                                                        \n - Descubra a produtividade 'produtividade'");
+        builder.Prompts.text(session, "Escolha umas das opções do menu \n - Descubra o futuro 'futuro' \n - Descubra a produtividade 'produtividade'");
  
     }, function(session, results){
        resposta = results.response;
