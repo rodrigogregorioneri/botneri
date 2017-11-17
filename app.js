@@ -50,16 +50,17 @@ var bot = new builder.UniversalBot(connector, [
     function (session, results) {
         if(results.response >= 23){
             session.send("Tiozão você!!");  
-            
+            session.beginDialog("mainMenu");
             
         }else if(results.response < 23){
             session.send("Menino novo!!");  
-            
+             session.beginDialog("mainMenu");
             
         }else{
-            session.send("Errrrrrou!!!");  
+            session.send("Errrrrrou!!!"); 
+             session.beginDialog("mainMenu");
         }
-        session.beginDialog("mainMenu");
+        
     }
 ]);
 
