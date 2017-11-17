@@ -14,6 +14,7 @@ var connector = new builder.ChatConnector({
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
 
+
 var menuItems = { 
     "futuro": {
         item: "futuro"
@@ -120,7 +121,7 @@ bot.dialog("bora", [
         builder.Prompts.choice(session, "Menu CronApp:", escolha);
     },
     function(session, results){
-        if(results.response){
+        if(results, response){
             session.beginDialog(escolha[results.response.entity].items);
             session.endDialog();
         }
