@@ -25,8 +25,9 @@ var bot = new builder.UniversalBot(connector, function (session) {
 });
 
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'");
+   // session.send("O blockly é o futuro pois 'programadores são pagos pra encontrar solução'");
     session.beginDialog("cronapp");
+   session.beginDialog("boatarde");
 });
 
 
@@ -34,6 +35,11 @@ var bot = new builder.UniversalBot(connector, function (session) {
 bot.dialog('cronapp',function(session){
     session.send("Já ouviu falar do CronApp?");
 });
+
+bot.dialog('boatarde',function(session){
+    session.send("Boa tarde!!");
+});
+
 
 
 
