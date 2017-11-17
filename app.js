@@ -25,9 +25,17 @@ var bot = new builder.UniversalBot(connector, [
  
     }, function(session, results){
        resposta = results.response;
-       session.send(resposta);
+       if(resposta === "Blockly"){
+          session.send("Aprenda a desenvolver com o Blockly!!")
+       }else if(resposta === "CronApp"){
+          session.send("Aprenda a desenvolver com o CronApp!!")      
+       }else{
+          session.send("Comando Invalido!!")
+       }   
     }
 ]);
+
+
 
 
 
