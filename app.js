@@ -46,7 +46,6 @@ bot.dialog("mainMenu", [
             session.beginDialog(menuItems[results.response.entity].item);
         }
     }
-
 ]);
 
 
@@ -61,9 +60,4 @@ bot.dialog('cronapp', [
 ]);
 
 
-bot.dialog('blockly', [
-    function(session){
-        session.send("Olá já conhece o Blockly?");
-        
-    }
-])
+
