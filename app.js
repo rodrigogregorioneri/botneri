@@ -47,12 +47,6 @@ bot.dialog("mainMenu", [
         }
     }
 ])
-.triggerAction({
-    // The user can request this at any time.
-    // Once triggered, it clears the stack and prompts the main menu again.
-    matches: /^main menu$/i,
-    confirmPrompt: "Deseja cancelar?"
-});
 
 
 
@@ -64,17 +58,3 @@ bot.dialog('blocly', [
         
     }
 ])
-.reloadAction(
-    "restartCronApp", "Ok. vamos recomeçar.",
-    {
-        matches: /^start over$/i,
-        confirmPrompt: "deseja cancelar??"
-    }
-)
-.cancelAction(
-    "cancelCronApp", "volte ao menu", 
-    {
-        matches: /^cancel$/i,
-        confirmPrompt: "deseja cancelar??"
-    }
-);
