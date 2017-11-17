@@ -25,13 +25,7 @@ var menuItems = {
     },
     "Blockly": {
         item: "blockly"
-    },
-    "Craudio dos computers": {
-        item: "craudio"
-    },
-    "Cronapinho": {
-        item: "cronapinho"
-    },
+    }
 }
 
 var bot = new builder.UniversalBot(connector, [
