@@ -45,6 +45,8 @@ var bot = new builder.UniversalBot(connector, [
             console.log(results.response);
             session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
           
+        }else{
+            session.send("Errrrrrrrou!!!");  
         }
     
             builder.Prompts.number(session, "qual sua idade?");
