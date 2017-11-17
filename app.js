@@ -14,13 +14,22 @@ var connector = new builder.ChatConnector({
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
 
-
 var menuItems = { 
     "futuro": {
         item: "futuro"
     },
     "produtividade": {
         item: "produtividade"
+    },
+}
+
+
+var escolha = { 
+    "biscoito": {
+        item: "biscoito"
+    },
+    "bolacha": {
+        item: "bolacha"
     },
 }
 
@@ -40,7 +49,7 @@ var bot = new builder.UniversalBot(connector, [
         }else if(results.response ==="Notepad++"){
             session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
         }else{
-            session.send("Errrrrrou!!!");  
+            session.send("Errrou!");
         }
     
             builder.Prompts.number(session, "qual sua idade?");
@@ -50,17 +59,14 @@ var bot = new builder.UniversalBot(connector, [
     function (session, results) {
         if(results.response >= 23){
             session.send("Tiozão você!!");  
-            session.beginDialog("mainMenu");
             
-        }else if(results.response < 23){
-            session.send("Menino novo!!");  
-             session.beginDialog("mainMenu");
             
         }else{
-            session.send("Errrrrrou!!!"); 
-             session.beginDialog("mainMenu");
+            session.send("Menino novo!!");  
+            
+            
         }
-        
+        session.beginDialog("mainMenu");
     }
 ]);
 
@@ -96,6 +102,40 @@ bot.dialog('futuro', [
 bot.dialog('produtividade', [
     function(session){
         session.send("Alta produtividade com o blockly!!!");
+        session.beginDialog("bora");
+
+    }
+]);
+
+
+bot.dialog('bora', [
+    function(session){
+        builder.Prompts.choice(session, "Menu CronApp:", escolha);
+        
+
+    },
+    ,
+    function(session, results){
+        if(results.response){
+            session.beginDialog(escolha[results.response.entity].item);
+            session.endDialog();
+        }
+    }
+]);
+
+
+bot.dialog('biscoito', [
+    function(session){
+        session.send("Errrou é bolacha!");
+        
+
+    }
+]);
+
+
+bot.dialog('bolacha', [
+    function(session){
+        session.send("Acerto Mizeravi!!!");
         
 
     }
