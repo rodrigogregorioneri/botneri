@@ -40,13 +40,17 @@ var bot = new builder.UniversalBot(connector, [
     function (session, results) {
          // console.log('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
           if(results.response == "help"){
-              session.send("Comandos de Ajuda  \n  - Ajuda : help  \n  - Horario de funcionamento: horario-funcionamento  \n  - Templates de aberturas de chamados: templates  \n  - Contato comercial: comercial");
+              session.send("Comandos de Ajuda  \n  - Ajuda : help  \n  - Horario de funcionamento: horario-funcionamento  \n  - Templates de aberturas de chamados: templates  \n  - Contato comercial: comercial  \n  - Canal do Youtube: youtube  \n  - Webnars: webnar");
           }else if(results.response == "horario-funcionamento"){
               session.send("Horário de atendimento é de Seg. a Sex. das 9:00 às 18:00.");
           }else if(results.response == "templates"){
               session.send("  Projeto(s):  \n  Ambiente(s):  \n  Função do erro:  \n  \n  Passos:  \n  \n  OBS.:");
           }else if(results.response == "comercial"){
               session.send("  Comercial  \n  Representante: Gabriela Saeger  \n  Skype: Gabriela Saeger  \n  Telefone: +55 00 99999-9999");
+           }else if(results.response == "youtube"){
+              session.send("Siga nosso canal no Youtube e fique por dentro dos nossos tutoriais e as gravações dos nossos Webnars  \n  youtube: 'https://www.youtube.com/channel/UCfEBjfXaiA8n-YfezFklsfg'")
+           }else if(results.response == "webnars"){
+              session.send("Cadastre-se nos webnars do CronApp: 'https://www.cronapp.io/eventos/'");
            }
          
            
