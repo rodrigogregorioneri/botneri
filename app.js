@@ -13,12 +13,28 @@ var connector = new builder.ChatConnector({
     appId: '1f9ed36f-309d-4fef-afe8-401276d643a4',
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
+
+
+
 var menuItems = { 
     "help": {
         item: "help"
     },
     "templates": {
         item: "templates"
+    },
+    "horario-funcionamento": {
+        item: "horario-funcionamento"
+    },
+    "comercial": {
+        item: "comercial"
+    }
+    ,
+    "youtube": {
+        item: "youtube"
+    },
+    "webnars": {
+        item: "webnars"
     },
 }
 
@@ -60,7 +76,7 @@ var bot = new builder.UniversalBot(connector, [
 
 bot.dialog("mainMenu", [
     function(session){
-        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:");
+        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
     },
     function(session, results){
         if(results.response){
@@ -91,6 +107,35 @@ function (session) {
 }
 );
 
+
+bot.dialog('horario-funcionamento', 
+// Step 1
+function (session) {
+    session.send("Horário de atendimento é de Seg. a Sex. das 9:00 às 18:00.");    
+}
+);
+
+bot.dialog('comercial', 
+// Step 1
+function (session) {
+    session.send("  Comercial  \n  Representante: Gabriela Saeger  \n  Skype: Gabriela Saeger  \n  Telefone: +55 00 99999-9999");
+}
+);
+
+
+bot.dialog('youtube', 
+// Step 1
+function (session) {
+    ession.send("Siga nosso canal no Youtube e fique por dentro dos nossos tutoriais e as gravações dos nossos Webnars  \n  youtube: 'https://www.youtube.com/channel/UCfEBjfXaiA8n-YfezFklsfg'");
+}
+);
+
+bot.dialog('webnars', 
+// Step 1
+function (session) {
+    session.send("Cadastre-se nos webnars do CronApp: 'https://www.cronapp.io/eventos/'");
+}
+);
 
 
 
