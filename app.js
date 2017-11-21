@@ -61,20 +61,20 @@ bot.on('conversationUpdate', function (message) {
         var membersAdded = message.membersAdded
             .map(function (m) {
                 var isSelf = m.id === message.address.bot.id;
-                return (isSelf ? message.address.bot.name : m.name) || '' + ' (Id: ' + m.id + ')';
+                return (isSelf ? message.address.bot.name : m.name) || '' + ' (Id: ' + m.name + ')';
             })
             .join(', ');
 
         bot.send(new builder.Message()
             .address(message.address)
-            .text("Bem vindo ao Suporte CronApp %s", membersAdded + 'Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.'));
+            .text("Bem vindo ao Suporte CronApp %s", membersAdded + ', em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.'));
     }
 
     if (message.membersRemoved && message.membersRemoved.length > 0) {
         var membersRemoved = message.membersRemoved
             .map(function (m) {
                 var isSelf = m.id === message.address.bot.id;
-                return (isSelf ? message.address.bot.name : m.name) || '' + ' (Id: ' + m.id + ')';
+                return (isSelf ? message.address.bot.name : m.name) || '' + ' (Id: ' + m.name + ')';
             })
             .join(', ');
 
@@ -83,4 +83,3 @@ bot.on('conversationUpdate', function (message) {
             .text('Os seguintes membros ' + membersRemoved + ' foram removidos ou deixaram a conversa :('));
     }
 });
-
