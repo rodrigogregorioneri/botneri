@@ -60,8 +60,8 @@ bot.on('conversationUpdate', function (message) {
     if (message.membersAdded && message.membersAdded.length > 0) {
         var membersAdded = message.membersAdded
             .map(function (m) {
-                var isSelf = m.id === message.address.bot.name;
-                return (isSelf ? message.address.bot.name : m.name) || '' + ' (Nome: ' + m.name + ')';
+                var isSelf = m.id === message.address.bot.id;
+                return (isSelf ? message.address.bot.name : m.name) || '' + ' (Nome: ' + m.id + ')';
             })
             .join(', ');
 
@@ -73,8 +73,8 @@ bot.on('conversationUpdate', function (message) {
     if (message.membersRemoved && message.membersRemoved.length > 0) {
         var membersRemoved = message.membersRemoved
             .map(function (m) {
-                var isSelf = m.id === message.address.bot.name;
-                return (isSelf ? message.address.bot.name : m.name) || '' + ' (Nome: ' + m.name + ')';
+                var isSelf = m.id === message.address.bot.id;
+                return (isSelf ? message.address.bot.name : m.name) || '' + ' (Nome: ' + m.id + ')';
             })
             .join(', ');
 
