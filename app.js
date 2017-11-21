@@ -29,72 +29,44 @@ server.post('/api/messages', connector.listen());
 
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
-    function (session, results) {
-        session.send('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
-        session.send(':)');
-        session.send('Parabéns Tor filho de Odin, original de Asgard irmão de Loki.');
-        
-       
+    function(session){
+            session.beginDialog("contactRelationUpdate");
     },
     function (session) {
-    
-   
-   
-           
-    
-            builder.Prompts.number(session, "qual sua idade?");
-       
-        
+          
+    //   builder.Prompt.text(session, ""); 
+       session.send('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
+       builder.Prompts.text(session, "\n  Para obter ajuda digite @Cronappinho help");
     },
     function (session, results) {
-        if(results.response >= 23){
-            session.send("Tiozão você!!");  
-            
-            
-        }else{
-            session.send("Menino novo!!");  
-            
-            
-        }
-        session.beginDialog("mainMenu");
+         // console.log('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
+          if(results.response == "help"){
+              session.send("Comandos de Ajuda  \n  - ajuda : help  \n  - horario de funcionamento: horario-funcionamento  \n  - templates de aberturas de chamados: templates  \n  Contato comercial: comercial");
+          }else if(results.response == "horario-funcionamento"){
+              session.send("Horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.");
+          }else if(results.response == "templates"){
+              session.send("Projeto(s):  \n  Ambiente(s):  \n  Função do erro:  \n  \n  Passos:  \n  \n  OBS.:");
+          }else if(results.response == "comercial"){
+              session.send("Comercial  \n  Representante: Gabriela Saeger  \n  Skype: Gabriela Saeger  \n Telefone: +55 00 99999-9999");
+           }
+         
+           
+       
+        
     }
 ]);
 
-
-bot.dialog("mainMenu", [
-    function(session){
-        builder.Prompts.choice(session, "Menu CronApp:", menuItems);
-    },
-    function(session, results){
-        if(results.response){
-            session.beginDialog(menuItems[results.response.entity].item);
-            session.endDialog();
-        }
+bot.on('contactRelationUpdate', function (message) {
+    if (message.action === 'add') {
+        var name = message.user ? message.user.name : null;
+        var reply = new builder.Message()
+                .address(message.address)
+                .text("Bem vindo ao Suporte CronApp %s", name || 'Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
+        bot.send(reply);
     }
-])
-.triggerAction({
-    // The user can request this at any time.
-    // Once triggered, it clears the stack and prompts the main menu again.
-    matches: /^main menu$/i,
-    confirmPrompt: "deseja sair?"
 });
 
 
-bot.dialog('futuro', [
-    function(session){
-        session.send("O futuro é o Blockly!");
-        
 
-    }
-]);
-
-
-bot.dialog('produtividade', [
-    function(session){
-        session.send("Alta produtividade com o blockly!!!");
-        
-
-    }
-]);
 
 
