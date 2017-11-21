@@ -69,7 +69,7 @@ bot.on('conversationUpdate', function (message) {
 
         bot.send(new builder.Message()
             .address(message.address)
-            .text("Bem vindo ao Suporte CronApp %s", membersAdded + 'Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.'));
+            .text("Bem vindo ao Suporte CronApp!!! Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.'));
     }
 
     if (message.membersRemoved && message.membersRemoved.length > 0) {
@@ -82,6 +82,6 @@ bot.on('conversationUpdate', function (message) {
 
         bot.send(new builder.Message()
             .address(message.address)
-            .text('Os seguintes membros ' + membersRemoved + ' foram removidos ou deixaram a conversa :('));
+            .text('Esperamos que você retorne ao CronApp!!! :('));
     }
 });
