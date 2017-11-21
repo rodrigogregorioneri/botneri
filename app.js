@@ -58,7 +58,7 @@ bot.dialog("mainMenu", [
         builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
     },
     function(session, results){
-        if(results.response){
+        if(results.response == "help"){
             session.beginDialog(menuItems[results.response.entity].item);
             //session.endDialog();
         }
