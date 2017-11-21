@@ -34,22 +34,13 @@ var bot = new builder.UniversalBot(connector, [
         session.send(':)');
         session.send('Parabéns Tor filho de Odin, original de Asgard irmão de Loki.');
         
-        builder.Prompts.text(session, "CronApp ou Notepad++?");
+       
     },
-    function (session, results) {
-        var resposta = results.response;
+    function (session) {
+    
    
-        if(resposta == "CronApp"){
-      
-            session.send("Sensacional assim você ganhara mais produtividade!!!");
-            
-        }else if(resposta == "Notepad++"){
-     
-            session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
-          
-        }else{
-            session.send("Ops, Algo de errado não está certo!!!");  
-        }
+   
+           
     
             builder.Prompts.number(session, "qual sua idade?");
        
