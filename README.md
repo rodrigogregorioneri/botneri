@@ -6,3 +6,4 @@ Projeto ChatBot node | Fullstack Developer | Developer Java / Android :iphone: :
 
 
 Descrição: ChatBot para SKYPE , Messenger e Slack feito com NodeJS, com dialogos. Bot criado para fins didaticos. 
+Deployed: Heroku e testado em produção no Skype.   
