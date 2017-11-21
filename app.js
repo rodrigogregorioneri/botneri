@@ -33,7 +33,7 @@ var bot = new builder.UniversalBot(connector, [
           
     //   builder.Prompt.text(session, ""); 
        
-        session.send("Olá CronApp Users"); 
+        session.send("  Olá CronApp Users"); 
   
       builder.Prompts.text(session, "\n  Para obter ajuda digite @Cronappinho help");
     },
