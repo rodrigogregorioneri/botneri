@@ -60,7 +60,7 @@ bot.dialog("mainMenu", [
     function(session, results){
         if(results.response){
             session.beginDialog(menuItems[results.response.entity].item);
-            session.endDialog();
+            //session.endDialog();
         }
     }
 ])
