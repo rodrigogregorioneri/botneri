@@ -29,17 +29,18 @@ server.post('/api/messages', connector.listen());
 
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
-    
     function (session) {
           
     //   builder.Prompt.text(session, ""); 
-       session.send('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
-       builder.Prompts.text(session, "\n  Para obter ajuda digite @Cronappinho help");
+       
+        session.send("Olá CronApp Users"); 
+  
+      builder.Prompts.text(session, "\n  Para obter ajuda digite @Cronappinho help");
     },
     function (session, results) {
          // console.log('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
           if(results.response == "help"){
-              session.send("Comandos de Ajuda  \n  - ajuda : help  \n  - horario de funcionamento: horario-funcionamento  \n  - templates de aberturas de chamados: templates  \n  Contato comercial: comercial");
+              session.send("Comandos de Ajuda  \n  - Ajuda : help  \n  - Horario de funcionamento: horario-funcionamento  \n  - Templates de aberturas de chamados: templates  \n  Contato comercial: comercial");
           }else if(results.response == "horario-funcionamento"){
               session.send("Horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.");
           }else if(results.response == "templates"){
