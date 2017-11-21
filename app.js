@@ -13,8 +13,6 @@ var connector = new builder.ChatConnector({
     appId: '1f9ed36f-309d-4fef-afe8-401276d643a4',
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
-
-
 var menuItems = { 
     "help": {
         item: "help"
@@ -62,7 +60,7 @@ var bot = new builder.UniversalBot(connector, [
 
 bot.dialog("mainMenu", [
     function(session){
-        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
+        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:");
     },
     function(session, results){
         if(results.response){
