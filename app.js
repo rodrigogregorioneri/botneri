@@ -14,7 +14,6 @@ var connector = new builder.ChatConnector({
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
 
-
 var menuItems = { 
     "futuro": {
         item: "futuro"
@@ -54,7 +53,6 @@ var bot = new builder.UniversalBot(connector, [
         
     }
 ]);
-
 
 
 
