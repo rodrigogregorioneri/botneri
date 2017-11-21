@@ -5,7 +5,7 @@ var builder = require('botbuilder');
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
 
-    console.log('%s listening to %s', server.name, server.url);
+   console.log('%s listening to %s', server.name, server.url); 
 });
 
 // Create chat connector for communicating with the Bot Framework Service
@@ -14,60 +14,29 @@ var connector = new builder.ChatConnector({
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
 
-
-var menuItems = { 
-    "futuro": {
-        item: "futuro"
-    },
-    "produtividade": {
-        item: "produtividade"
-    },
-}
-
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
+// Main menu
+var menuItems = { 
+    "CronApp": {
+        item: "cronapp"
+    },
+    "Blockly": {
+        item: "blockly"
+    }
+};
+
+
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
-    function (session, results) {
-        session.send('"Bem vindo ao Suporte CronApp. Em breve você terá autonomia para registrar seus chamados em nosso portal cronapp.io/suporte"., nosso horário de atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas responderá em breve.');
-        
-        builder.Prompts.text(session, "CronApp ou Notepad++?");
-    },
-    function (session, results) {
-        var resposta = results.response;
-        console.log(resposta);
-        if(resposta == "CronApp"){
-            console.log(results.response);
-            session.send("Sensacional assim você ganhara mais produtividade!!!");
-            
-        }else if(resposta ==="Notepad++"){
-            console.log(results.response);
-            session.send("Você acaba de ganhar o titulo de Garoto Notepad++");  
-          
-        }else{
-            session.send("Errrrrrrrou!!!");  
-        }
-    
-            builder.Prompts.number(session, "qual sua idade?");
-       
-        
-    },
-    function (session, results) {
-        if(results.response >= 23){
-            session.send("Tiozão você!!");  
-            
-            
-        }else{
-            session.send("Menino novo!!");  
-            
-            
-        }
+    function(session){
+        session.send("Bem vindo ao CronApp.");
         session.beginDialog("mainMenu");
     }
 ]);
 
-
+// Display the main menu and start a new request depending on user input.
 bot.dialog("mainMenu", [
     function(session){
         builder.Prompts.choice(session, "Menu CronApp:", menuItems);
@@ -75,31 +44,25 @@ bot.dialog("mainMenu", [
     function(session, results){
         if(results.response){
             session.beginDialog(menuItems[results.response.entity].item);
-            session.endDialog();
         }
     }
+]);
+
+
+
+// Menu: "Order dinner"
+// This dialog allows user to order dinner to be delivered to their hotel room.
+bot.dialog('cronapp', [
+    function(session){
+        session.send("Olá já conhece o CronApp?");
+        
+    }
+]);
+
+
+bot.dialog('blockly', [
+    function(session){
+        session.send("Olá já conhece o Blockly?");
+        
+    }
 ])
-.triggerAction({
-    // The user can request this at any time.
-    // Once triggered, it clears the stack and prompts the main menu again.
-    matches: /^main menu$/i,
-    confirmPrompt: "deseja sair?"
-});
-
-
-bot.dialog('futuro', [
-    function(session){
-        session.send("O futuro é o Blockly!");
-        
-
-    }
-]);
-
-
-bot.dialog('produtividade', [
-    function(session){
-        session.send("Alta produtividade com o blockly!!!");
-        
-
-    }
-]);
