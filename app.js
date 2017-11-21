@@ -42,7 +42,7 @@ server.post('/api/messages', connector.listen());
 
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
-    function (session) {
+    function (session, results) {
           
        builder.Prompt.text(session, "Olá CronApp Users para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:"); 
        
