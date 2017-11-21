@@ -46,7 +46,7 @@ var bot = new builder.UniversalBot(connector, [
           }else if(results.response == "templates"){
               session.send("  Projeto(s):  \n  Ambiente(s):  \n  Função do erro:  \n  \n  Passos:  \n  \n  OBS.:");
           }else if(results.response == "comercial"){
-              session.send("Comercial  \n  Representante: Gabriela Saeger  \n  Skype: Gabriela Saeger  \n Telefone: +55 00 99999-9999");
+              session.send("  Comercial  \n  Representante: Gabriela Saeger  \n  Skype: Gabriela Saeger  \n  Telefone: +55 00 99999-9999");
            }
          
            
