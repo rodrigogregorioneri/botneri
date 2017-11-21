@@ -82,6 +82,6 @@ bot.on('conversationUpdate', function (message) {
 
         bot.send(new builder.Message()
             .address(message.address)
-            .text('Esperamos que você retorne ao CronApp!!! :('));
+            .text("Esperamos que você retorne ao CronApp!!!"));
     }
 });
