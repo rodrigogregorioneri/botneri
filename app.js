@@ -58,6 +58,7 @@ var bot = new builder.UniversalBot(connector, [
 
 
 
+
 bot.on('conversationUpdate', function (message) {
     if (message.membersAdded && message.membersAdded.length > 0) {
         var membersAdded = message.membersAdded
