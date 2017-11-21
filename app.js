@@ -79,9 +79,27 @@ bot.dialog("mainMenu", [
         builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
     },
     function(session, results){
-        if(results.response){
+        if(results.response === "help"){
             session.beginDialog(menuItems[results.response.entity].item);
             session.endDialog();
+        }else if(results.response === "templates"){
+            session.beginDialog(menuItems[results.response.entity].item);
+            session.endDialog();
+        }
+        else if(results.response === "horario-funcionamento"){
+            session.beginDialog(menuItems[results.response.entity].item);
+            session.endDialog();
+        }else if(results.response === "comercial"){
+            session.beginDialog(menuItems[results.response.entity].item);
+            session.endDialog();
+        }
+        else if(results.response === "youtube"){
+            session.beginDialog(menuItems[results.response.entity].item);
+            session.endDialog();   
+        }
+        else if(results.response === "webnars"){
+            session.beginDialog(menuItems[results.response.entity].item);
+            session.endDialog();     
         }
     }
 ])
@@ -165,4 +183,4 @@ bot.on('conversationUpdate', function (message) {
             .address(message.address)
             .text("Esperamos que você retorne ao CronApp!!!"));
     }
-}); 
+});
