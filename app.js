@@ -70,8 +70,8 @@ bot.dialog("mainMenu", [
             case 'help':
                 session.beginDialog("help");
                 break;
-            case 'templates':
-                session.beginDialog("templates");
+            case 'documentação':
+                session.beginDialog("documentação");
                 break;
             case 'horario-funcionamento':
                 session.beginDialog("horario-funcionamento");
@@ -84,7 +84,10 @@ bot.dialog("mainMenu", [
                 break;      
             case 'webinars':
                 session.beginDialog("webinars");
-                break;                                               
+                break;     
+            case 'artigos':
+                session.beginDialog("artigos");
+                break;       
         }
     }
 ])
