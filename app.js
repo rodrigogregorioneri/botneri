@@ -103,7 +103,7 @@ function (session) {
 bot.dialog('horario-funcionamento', 
 // Step 1
 function (session) {
-    session.send("Horário de atendimento é de Seg. a Sex. das 9:00 às 18:00."); 
+    session.send("Horário de atendimento é de Seg. a Sex. das 9:00 às 13:00 horas e das 14:00 às 18:00 horas."); 
     session.endDialog();   
 }
 );
