@@ -13,6 +13,8 @@ var connector = new builder.ChatConnector({
     appId: '1f9ed36f-309d-4fef-afe8-401276d643a4',
     appPassword: 'cvhbcCHHE963:+])qgUFP34'
 });
+
+
 var menuItems = { 
     "help": {
         item: "help"
@@ -62,12 +64,28 @@ bot.dialog("mainMenu", [
             maxRetries: 2
 });
 
-    },
-    function(session, results){
+    },function (session, results) {
         
-            session.beginDialog(menuItems[results.response.entity].item);
-            
-        
+        switch (results.response.entity) {
+            case 'help':
+                session.beginDialog("help");
+                break;
+            case 'templates':
+                session.beginDialog("templates");
+                break;
+            case 'horario-funcionamento':
+                session.beginDialog("horario-funcionamento");
+                break;
+            case 'comercial':
+                session.beginDialog("comercial");
+                break;
+            case 'youtube':
+                session.beginDialog("youtube");
+                break;      
+            case 'webnars':
+                session.beginDialog("webnars");
+                break;                                               
+        }
     }
 ])
 .triggerAction({
