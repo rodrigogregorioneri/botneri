@@ -58,7 +58,7 @@ bot.dialog("mainMenu", [
        // builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
 
 
-        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", "help|templates|horario-funcionamento|comercial|youtube|webinars", {
+        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", "help|documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
             retryPrompt: "Escolha invalida, insira novamente.",
             listStyle: builder.ListStyle.button,
             maxRetries: 2
@@ -102,10 +102,10 @@ bot.dialog('help',
     }
 );
 
-bot.dialog('templates', 
+bot.dialog('documentação', 
 // Step 1
 function (session) {
-    session.send("  Projeto(s):  \n  Ambiente(s):  \n  Função do erro:  \n  \n  Passos:  \n  \n  OBS.:");
+    session.send("Aqui você vai encontrar a sua disposição toda a documentação atualizada do CronApp. Acesse: docs.cronapp.io");
     session.endDialog();
 }
 );
@@ -119,6 +119,15 @@ function (session) {
 }
 );
 
+bot.dialog('artigos', 
+// Step 1
+function (session) {
+    session.send("Quer tal ler artigos interessantes sobre o universo do desenvolvimento de software?  \n  Acesse: blog.cronapp.io"); 
+    session.endDialog();   
+}
+);
+
+
 bot.dialog('comercial', 
 // Step 1
 function (session) {
@@ -131,15 +140,15 @@ function (session) {
 bot.dialog('youtube', 
 // Step 1
 function (session) {
-    session.send("Siga nosso canal no Youtube e fique por dentro dos nossos tutoriais e as gravações dos nossos Webnars  \n  youtube: 'https://www.youtube.com/channel/UCfEBjfXaiA8n-YfezFklsfg'");
+    session.send("Assine nosso Canal no Youtube e saiba antes das novidades.  \n  Acesse: www.youtube.com/c/cronapp");
     session.endDialog();
 }
 );
 
-bot.dialog('webnars', 
+bot.dialog('webinars', 
 // Step 1
 function (session) {
-    session.send("Cadastre-se nos webnars do CronApp: 'https://www.cronapp.io/eventos/'");
+    session.send("Temos eventos mensais sobre novas funcionalidades do CronApp. Confira aqui os nossos próximos eventos e não deixe de participar. Acesse: www.cronapp.io/eventos/");
     session.endDialog();
 }
 );
