@@ -32,8 +32,8 @@ var menuItems = {
     "youtube": {
         item: "youtube"
     },
-    "webnars": {
-        item: "webnars"
+    "webinars": {
+        item: "webinars"
     },
 }
 
@@ -58,7 +58,7 @@ bot.dialog("mainMenu", [
        // builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
 
 
-        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", "help|templates|horario-funcionamento|comercial|youtube|webnars", {
+        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", "help|templates|horario-funcionamento|comercial|youtube|webinars", {
             retryPrompt: "Escolha invalida, insira novamente.",
             listStyle: builder.ListStyle.button,
             maxRetries: 2
@@ -82,8 +82,8 @@ bot.dialog("mainMenu", [
             case 'youtube':
                 session.beginDialog("youtube");
                 break;      
-            case 'webnars':
-                session.beginDialog("webnars");
+            case 'webinars':
+                session.beginDialog("webinars");
                 break;                                               
         }
     }
