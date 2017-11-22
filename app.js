@@ -108,7 +108,7 @@ bot.dialog('help',
 bot.dialog('documentação', 
 // Step 1
 function (session) {
-    session.send("Aqui você vai encontrar a sua disposição toda a documentação atualizada do CronApp. Acesse: docs.cronapp.io");
+    session.send("Aqui você vai encontrar a sua disposição toda a documentação atualizada do CronApp. Acesse: https://docs.cronapp.io");
     session.endDialog();
 }
 );
@@ -125,7 +125,7 @@ function (session) {
 bot.dialog('artigos', 
 // Step 1
 function (session) {
-    session.send("Quer tal ler artigos interessantes sobre o universo do desenvolvimento de software?  \n  Acesse: blog.cronapp.io"); 
+    session.send("Quer tal ler artigos interessantes sobre o universo do desenvolvimento de software?  \n  Acesse: https://www.cronapp.io/blog/"); 
     session.endDialog();   
 }
 );
@@ -143,7 +143,7 @@ function (session) {
 bot.dialog('youtube', 
 // Step 1
 function (session) {
-    session.send("Assine nosso Canal no Youtube e saiba antes das novidades.  \n  Acesse: www.youtube.com/c/cronapp");
+    session.send("Assine nosso Canal no Youtube e saiba antes das novidades.  \n  Acesse: https://www.youtube.com/c/cronapp");
     session.endDialog();
 }
 );
@@ -151,7 +151,7 @@ function (session) {
 bot.dialog('webinars', 
 // Step 1
 function (session) {
-    session.send("Temos eventos mensais sobre novas funcionalidades do CronApp. Confira aqui os nossos próximos eventos e não deixe de participar. Acesse: www.cronapp.io/eventos/");
+    session.send("Temos eventos mensais sobre novas funcionalidades do CronApp. Confira aqui os nossos próximos eventos e não deixe de participar. Acesse: https://www.cronapp.io/eventos/");
     session.endDialog();
 }
 );
