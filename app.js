@@ -54,7 +54,7 @@ var bot = new builder.UniversalBot(connector, [
 
 
 bot.dialog("mainMenu", [
-    function(session, results, next){
+    function(session, results){
        // builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
 
 
