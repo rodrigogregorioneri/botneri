@@ -44,7 +44,7 @@ server.post('/api/messages', connector.listen());
 var bot = new builder.UniversalBot(connector, [
     function (session) {
           
-        session.send("Olá CronApp Users para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:"); 
+      //  session.send("Olá CronApp Users para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:"); 
        
     //  session.send("Olá CronApp Users"); 
     session.beginDialog("mainMenu");
