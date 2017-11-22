@@ -52,10 +52,10 @@ var bot = new builder.UniversalBot(connector, [
 
 bot.dialog("mainMenu", [
     function(session, results){
-       // builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
+       // builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba:", menuItems);
 
 
-        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
+        builder.Prompts.choice(session, "Para obter ajuda digite '@@Help CronApp' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
             retryPrompt: "Escolha invalida, insira novamente.",
             listStyle: builder.ListStyle.button,
             maxRetries: 2
