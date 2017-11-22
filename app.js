@@ -16,9 +16,6 @@ var connector = new builder.ChatConnector({
 
 
 var menuItems = { 
-    "help": {
-        item: "help"
-    },
     "templates": {
         item: "templates"
     },
@@ -58,7 +55,7 @@ bot.dialog("mainMenu", [
        // builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", menuItems);
 
 
-        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", "help|documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
+        builder.Prompts.choice(session, "Para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
             retryPrompt: "Escolha invalida, insira novamente.",
             listStyle: builder.ListStyle.button,
             maxRetries: 2
@@ -67,9 +64,6 @@ bot.dialog("mainMenu", [
     },function (session, results) {
         
         switch (results.response.entity) {
-            case 'help':
-                session.beginDialog("help");
-                break;
             case 'documentação':
                 session.beginDialog("documentação");
                 break;
@@ -96,14 +90,6 @@ bot.dialog("mainMenu", [
     confirmPrompt: "deseja sair?"
 });
 
-
-bot.dialog('help', 
-    // Step 1
-    function (session) {
-        session.send("Comandos de Ajuda  \n  - Ajuda : help  \n  - Horario de funcionamento: horario-funcionamento  \n  - Templates de aberturas de chamados: templates  \n  - Contato comercial: comercial  \n  - Canal do Youtube: youtube  \n  - Webnars: webnar");
-        session.endDialog();
-    }
-);
 
 bot.dialog('documentação', 
 // Step 1
