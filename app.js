@@ -171,3 +171,9 @@ bot.on('conversationUpdate', function (message) {
             .text("Esperamos que você retorne ao CronApp!!!"));
     }
 });
+
+
+bot.on('routing', function(session){
+    session.send("Olá pessoal");
+
+});
