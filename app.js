@@ -15,7 +15,6 @@ var connector = new builder.ChatConnector({
 });
 
 
-
 var menuItems = { 
     "templates": {
         item: "templates"
@@ -40,42 +39,28 @@ server.post('/api/messages', connector.listen());
 
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
-    function () {
+    function (session) {
           
       //  session.send("Olá CronApp Users para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:"); 
        
-     // session.send("Olá CronApp Users"); 
-    
+    //  session.send("Olá CronApp Users"); 
+    session.beginDialog("mainMenu");
       
     }
 ]);
 
-bot.on('routing', function(session){
-    
-    
-
-        if(session.message.text === "menu"){
-            session.beginDialog("mainMenu");
-           // session.endDialog();
-        }else{
-            session.send("Olá pessoal");
-        }
-        
-    
-    });
 
 bot.dialog("mainMenu", [
     function(session, results){
        // builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba:", menuItems);
 
 
-        builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
+        builder.Prompts.choice(session, "Para obter ajuda digite '@@Help CronApp' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
             retryPrompt: "Escolha invalida, insira novamente.",
             listStyle: builder.ListStyle.button,
-            maxRetries: 1
+            maxRetries: 2
+});
 
-        });
-        session.endDialog();
     },function (session, results) {
         
         switch (results.response.entity) {
@@ -98,11 +83,10 @@ bot.dialog("mainMenu", [
                 session.beginDialog("artigos");
                 break;       
         }
-        
     }
 ])
 .triggerAction({
-    matches: /^mainMenu$/i,
+    matches: /^main menu$/i,
     confirmPrompt: "deseja sair?"
 });
 
@@ -189,4 +173,7 @@ bot.on('conversationUpdate', function (message) {
 });
 
 
+bot.on('routing', function(session){
+    session.send("Olá pessoal");
 
+});
