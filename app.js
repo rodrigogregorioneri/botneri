@@ -15,6 +15,7 @@ var connector = new builder.ChatConnector({
 });
 
 
+
 var menuItems = { 
     "templates": {
         item: "templates"
@@ -36,26 +37,28 @@ var menuItems = {
 
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
-
+var menu;
 // This is a reservation bot that has a menu of offerings.
 var bot = new builder.UniversalBot(connector, [
     function (session) {
           
-      //  session.send("Olá CronApp Users para obter ajuda digite '@Cronappinho help' ou digite seu comando caso já saiba:"); 
-       
-    //  session.send("Olá CronApp Users"); 
-    session.beginDialog("mainMenu");
+     
+  session.send("digite um comando caso não conheça digite 'menu cronapp'. ")
+  // session.beginDialog("menu cronapp");
       
     }
 ]);
 
 
-bot.dialog("mainMenu", [
+
+
+
+bot.dialog("menu cronapp", [
     function(session, results){
        // builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba:", menuItems);
 
 
-        builder.Prompts.choice(session, "Para obter ajuda digite '@@Help CronApp' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
+        builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
             retryPrompt: "Escolha invalida, insira novamente.",
             listStyle: builder.ListStyle.button,
             maxRetries: 2
@@ -82,13 +85,30 @@ bot.dialog("mainMenu", [
             case 'artigos':
                 session.beginDialog("artigos");
                 break;       
+            case 'cronappkm':
+                session.beginDialog("cronappkm");
+                break;         
         }
     }
 ])
 .triggerAction({
-    matches: /^main menu$/i,
+    matches: /^menu cronapp$/i,
     confirmPrompt: "deseja sair?"
 });
+
+
+bot.dialog('cronappkm', 
+// Step 1
+function (session) {
+    session.send("Comando da zueira");
+    //session.endDialog();
+}
+).triggerAction({
+    matches: /^cronappkm$/i,
+    confirmPrompt: "deseja sair?"
+});
+
+
 
 
 bot.dialog('documentação', 
@@ -97,7 +117,10 @@ function (session) {
     session.send("Aqui você vai encontrar a sua disposição toda a documentação atualizada do CronApp. \nAcesse: https://docs.cronapp.io");
     session.endDialog();
 }
-);
+).triggerAction({
+    matches: /^documentação$/i,
+    confirmPrompt: "deseja sair?"
+});
 
 
 bot.dialog('horario-funcionamento', 
@@ -106,7 +129,10 @@ function (session) {
     session.send("Horário de atendimento é de Seg. a Sex. das 9:00 às 13:00 horas e das 14:00 às 18:00 horas."); 
     session.endDialog();   
 }
-);
+).triggerAction({
+    matches: /^horario-funcionamento$/i,
+    confirmPrompt: "deseja sair?"
+});
 
 bot.dialog('artigos', 
 // Step 1
@@ -114,7 +140,10 @@ function (session) {
     session.send("Quer tal ler artigos interessantes sobre o universo do desenvolvimento de software?  \nAcesse: https://www.cronapp.io/blog/"); 
     session.endDialog();   
 }
-);
+).triggerAction({
+    matches: /^artigos$/i,
+    confirmPrompt: "deseja sair?"
+});
 
 
 bot.dialog('comercial', 
@@ -123,7 +152,10 @@ function (session) {
     session.send("  Comercial  \n  Representante: Gabriela Saeger  \n  Skype: Gabriela Saeger  \n  Telefone: +55 00 99999-9999");
     session.endDialog();
 }
-);
+).triggerAction({
+    matches: /^comercial$/i,
+    confirmPrompt: "deseja sair?"
+});
 
 
 bot.dialog('youtube', 
@@ -132,7 +164,10 @@ function (session) {
     session.send("Assine nosso Canal no Youtube e saiba antes das novidades.  \nAcesse: https://www.youtube.com/c/cronapp");
     session.endDialog();
 }
-);
+).triggerAction({
+    matches: /^youtube$/i,
+    confirmPrompt: "deseja sair?"
+});
 
 bot.dialog('webinars', 
 // Step 1
@@ -140,7 +175,10 @@ function (session) {
     session.send("Temos eventos mensais sobre novas funcionalidades do CronApp. Confira aqui os nossos próximos eventos e não deixe de participar. Acesse: https://www.cronapp.io/eventos/");
     session.endDialog();
 }
-);
+).triggerAction({
+    matches: /^webinars$/i,
+    confirmPrompt: "deseja sair?"
+});
 
 
 
