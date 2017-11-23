@@ -46,7 +46,11 @@ var bot = new builder.UniversalBot(connector,
         // session.beginDialog("menu cronapp");
     });
 
-
+bot.on('ola', function(session){
+       session.send("Olá");
+    }).triggerAction({
+    matches: /^ola$/i
+});
 
 
 
