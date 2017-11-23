@@ -16,6 +16,7 @@ var connector = new builder.ChatConnector({
 
 
 
+
 var menuItems = { 
     "templates": {
         item: "templates"
@@ -92,8 +93,7 @@ bot.dialog("menu cronapp", [
     }
 ])
 .triggerAction({
-    matches: /^menu cronapp$/i,
-    confirmPrompt: "deseja sair?"
+    matches: /^menu cronapp$/i
 });
 
 
@@ -104,8 +104,7 @@ function (session) {
     //session.endDialog();
 }
 ).triggerAction({
-    matches: /^cronappkm$/i,
-    confirmPrompt: "deseja sair?"
+    matches: /^cronappkm$/i
 });
 
 
@@ -118,8 +117,7 @@ function (session) {
     session.endDialog();
 }
 ).triggerAction({
-    matches: /^documentação$/i,
-    confirmPrompt: "deseja sair?"
+    matches: /^documentação$/i
 });
 
 
@@ -130,8 +128,7 @@ function (session) {
     session.endDialog();   
 }
 ).triggerAction({
-    matches: /^horario-funcionamento$/i,
-    confirmPrompt: "deseja sair?"
+    matches: /^horario-funcionamento$/i
 });
 
 bot.dialog('artigos', 
@@ -141,8 +138,7 @@ function (session) {
     session.endDialog();   
 }
 ).triggerAction({
-    matches: /^artigos$/i,
-    confirmPrompt: "deseja sair?"
+    matches: /^artigos$/i
 });
 
 
@@ -153,8 +149,7 @@ function (session) {
     session.endDialog();
 }
 ).triggerAction({
-    matches: /^comercial$/i,
-    confirmPrompt: "deseja sair?"
+    matches: /^comercial$/i
 });
 
 
@@ -165,8 +160,7 @@ function (session) {
     session.endDialog();
 }
 ).triggerAction({
-    matches: /^youtube$/i,
-    confirmPrompt: "deseja sair?"
+    matches: /^youtube$/i
 });
 
 bot.dialog('webinars', 
@@ -176,8 +170,7 @@ function (session) {
     session.endDialog();
 }
 ).triggerAction({
-    matches: /^webinars$/i,
-    confirmPrompt: "deseja sair?"
+    matches: /^webinars$/i
 });
 
 
