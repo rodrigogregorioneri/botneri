@@ -14,7 +14,8 @@ var connector = new builder.ChatConnector({
     appPassword: 'wxtadqPBL273{@=dIZQV83~'
 });
 
-
+// Listen for messages from users 
+server.post('/api/messages', connector.listen());
 
 
 var menuItems = { 
@@ -36,19 +37,14 @@ var menuItems = {
     },
 }
 
-// Listen for messages from users 
-server.post('/api/messages', connector.listen());
+
 var menu;
 // This is a reservation bot that has a menu of offerings.
-var bot = new builder.UniversalBot(connector, [
+var bot = new builder.UniversalBot(connector, 
     function (session) {
-          
-     
-  session.send("digite um comando caso não conheça digite 'menu cronapp'. ")
-  // session.beginDialog("menu cronapp");
-      
-    }
-]);
+        session.send("digite um comando caso não conheça digite 'menu cronapp'. ")
+        // session.beginDialog("menu cronapp");
+    });
 
 
 
