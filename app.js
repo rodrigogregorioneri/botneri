@@ -48,9 +48,7 @@ var bot = new builder.UniversalBot(connector,
 
 bot.on('ola', function(session){
        session.send("Olá");
-    }).triggerAction({
-    matches: /^ola$/i
-});
+    });
 
 
 
