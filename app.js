@@ -32,6 +32,9 @@ var menuItems = {
     "webinars": {
         item: "webinars"
     },
+    "suporte": {
+        item: "suporte"
+    },
 }
 
 // Listen for messages from users 
