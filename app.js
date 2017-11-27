@@ -55,7 +55,7 @@ bot.dialog("mainMenu", [
        // builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba:", menuItems);
 
 
-        builder.Prompts.choice(session, "Para obter ajuda digite '@@Help CronApp' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
+        builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba ou escolha no menu abaixo:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos|suporte", {
             retryPrompt: "Escolha invalida, insira novamente.",
             listStyle: builder.ListStyle.button,
             maxRetries: 2
@@ -82,6 +82,9 @@ bot.dialog("mainMenu", [
             case 'artigos':
                 session.beginDialog("artigos");
                 break;       
+             case 'suporte':
+                session.beginDialog("artigos");
+                break;      
         }
     }
 ])
@@ -141,6 +144,15 @@ function (session) {
     session.endDialog();
 }
 );
+
+bot.dialog('suporte', 
+// Step 1
+function (session) {
+    session.send("Bem vindo ao Suporte CronApp!!! \n Em breve você terá autonomia para registrar seus chamados em nosso portal "https://www.cronapp.io/suporte", nosso horário de \n atendimento é de Seg. a Sex. das 9:00 às 18:00. Aguarde, um de nossos analistas \n responderá em breve.");
+    session.endDialog();
+}
+);
+
 
 
 
