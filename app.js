@@ -83,7 +83,7 @@ bot.dialog("mainMenu", [
                 session.beginDialog("artigos");
                 break;       
              case 'suporte':
-                session.beginDialog("artigos");
+                session.beginDialog("suporte");
                 break;      
         }
     }
