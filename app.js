@@ -55,7 +55,7 @@ bot.dialog("mainMenu", [
        // builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba:", menuItems);
 
 
-        builder.Prompts.choice(session, "Para obter ajuda digite '@@Help CronApp' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
+        builder.Prompts.choice(session, "Para obter ajuda digite '@Help CronApp' ou digite seu comando caso já saiba:", "documentação|horario-funcionamento|comercial|youtube|webinars|artigos", {
             retryPrompt: "Escolha invalida, insira novamente.",
             listStyle: builder.ListStyle.button,
             maxRetries: 2
@@ -111,7 +111,7 @@ function (session) {
 bot.dialog('artigos', 
 // Step 1
 function (session) {
-    session.send("Quer tal ler artigos interessantes sobre o universo do desenvolvimento de software?  \nAcesse: https://www.cronapp.io/blog/"); 
+    session.send("Que tal ler artigos interessantes sobre o universo do desenvolvimento de software?  \nAcesse: https://www.cronapp.io/blog/"); 
     session.endDialog();   
 }
 );
