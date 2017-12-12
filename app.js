@@ -120,7 +120,7 @@ function (session) {
 bot.dialog('comercial', 
 // Step 1
 function (session) {
-    session.send("  Comercial  \n  Representante: Gabriela Saeger  \n  Skype: Gabriela Saeger  \n  Telefone: +55 00 99999-9999");
+    session.send("  Comercial  \n  Representante: Gabriela Saeger  \n  Skype: Gabriela Saeger  \n  Telefone: Tel: (11) 2149 9200 - (11) 9764-73324 \n  Skype: gabrielasaeger");
     session.endDialog();
 }
 );
