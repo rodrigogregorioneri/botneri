@@ -1,3 +1,4 @@
+/**
 var restify = require('restify');
 var builder = require('botbuilder');
 
@@ -177,3 +178,4 @@ bot.on('routing', function(session){
     session.send("Olá pessoal");
 
 });
+**/
